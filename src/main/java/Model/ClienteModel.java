@@ -9,7 +9,7 @@ package Model;
  * @author jonas
  */
 public class ClienteModel {
-    private String nome;
+    protected String nome;
     private String sobrenome;
     private String email;
     private String telefone;
@@ -24,6 +24,20 @@ public class ClienteModel {
     
     public ClienteModel(){
         
+    }
+    
+    public ClienteModel(String nome, String sobrenome, String email, String endereco, String cidade, String estado, String pais, String codigoPostal, String numeroIdentificacao, String dataNascimento, String dataRegistro){
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.email = email;
+        this.endereco = endereco;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.pais = pais;
+        this.codigoPostal = codigoPostal;
+        this.numeroIdentificacao = numeroIdentificacao;
+        this.dataNascimento = dataNascimento;
+        this.dataRegistro = dataRegistro;
     }
     
     public void setNome(String nome) {

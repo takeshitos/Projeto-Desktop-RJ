@@ -4,6 +4,9 @@
  */
 package View;
 
+import java.awt.Color;
+import javax.swing.JPanel;
+
 /**
  *
  * @author ricar
@@ -35,11 +38,16 @@ public class ViewCadastro extends javax.swing.JFrame {
         Header = new javax.swing.JPanel();
         iconin = new javax.swing.JPanel();
         ButtonClose = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        Close = new javax.swing.JLabel();
         ButtonMax = new javax.swing.JPanel();
+        FullMax = new javax.swing.JLabel();
         ButtonMin = new javax.swing.JPanel();
         Menu = new javax.swing.JPanel();
         MenuIcon = new javax.swing.JPanel();
+        HideMenu = new javax.swing.JPanel();
+        btHideMenu = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
         Menuhide = new javax.swing.JPanel();
         Dashboard = new javax.swing.JPanel();
 
@@ -81,14 +89,42 @@ public class ViewCadastro extends javax.swing.JFrame {
         ButtonClose.setBackground(new java.awt.Color(0, 51, 51));
         ButtonClose.setLayout(new java.awt.BorderLayout());
 
-        jLabel1.setBackground(new java.awt.Color(0, 51, 51));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ButtonClose.add(jLabel1, java.awt.BorderLayout.CENTER);
+        Close.setBackground(new java.awt.Color(0, 51, 51));
+        Close.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/delete_32px.png"))); // NOI18N
+        Close.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CloseMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                CloseMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                CloseMouseExited(evt);
+            }
+        });
+        ButtonClose.add(Close, java.awt.BorderLayout.CENTER);
 
         iconin.add(ButtonClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 0, 60, 50));
 
         ButtonMax.setBackground(new java.awt.Color(0, 51, 51));
         ButtonMax.setLayout(new java.awt.BorderLayout());
+
+        FullMax.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        FullMax.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/full_screen_32px.png"))); // NOI18N
+        FullMax.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                FullMaxMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                FullMaxMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                FullMaxMouseExited(evt);
+            }
+        });
+        ButtonMax.add(FullMax, java.awt.BorderLayout.CENTER);
+
         iconin.add(ButtonMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 0, 60, 50));
 
         ButtonMin.setBackground(new java.awt.Color(0, 51, 51));
@@ -104,17 +140,48 @@ public class ViewCadastro extends javax.swing.JFrame {
 
         MenuIcon.setBackground(new java.awt.Color(0, 51, 51));
         MenuIcon.setPreferredSize(new java.awt.Dimension(50, 330));
+        MenuIcon.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout MenuIconLayout = new javax.swing.GroupLayout(MenuIcon);
-        MenuIcon.setLayout(MenuIconLayout);
-        MenuIconLayout.setHorizontalGroup(
-            MenuIconLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        HideMenu.setBackground(new java.awt.Color(0, 51, 51));
+        HideMenu.setLayout(new java.awt.BorderLayout());
+
+        btHideMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btHideMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/back_32px.png"))); // NOI18N
+        HideMenu.add(btHideMenu, java.awt.BorderLayout.CENTER);
+
+        MenuIcon.add(HideMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 5, 50, 50));
+
+        jPanel1.setBackground(new java.awt.Color(0, 51, 51));
+        jPanel1.setPreferredSize(new java.awt.Dimension(50, 5));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 50, Short.MAX_VALUE)
         );
-        MenuIconLayout.setVerticalGroup(
-            MenuIconLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 330, Short.MAX_VALUE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
         );
+
+        MenuIcon.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 5));
+
+        jPanel5.setBackground(new java.awt.Color(0, 51, 51));
+        jPanel5.setPreferredSize(new java.awt.Dimension(50, 5));
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 50, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
+        );
+
+        MenuIcon.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 55, -1, -1));
 
         Menu.add(MenuIcon, java.awt.BorderLayout.LINE_START);
 
@@ -161,6 +228,36 @@ public class ViewCadastro extends javax.swing.JFrame {
     private void jtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtNomeActionPerformed
+    //Botão SAIR
+    public void changeColor(JPanel hover, Color rand){
+        hover.setBackground(rand);
+    }
+    
+    private void CloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CloseMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_CloseMouseClicked
+
+    private void CloseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CloseMouseEntered
+        changeColor(ButtonClose, new Color(0,102,102));
+    }//GEN-LAST:event_CloseMouseEntered
+
+    private void CloseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CloseMouseExited
+        changeColor(ButtonClose, new Color(0,51,51));
+    }//GEN-LAST:event_CloseMouseExited
+    //Botão Expandir
+    
+    
+    private void FullMaxMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FullMaxMouseEntered
+        changeColor(ButtonMax, new Color(0,102,102));
+    }//GEN-LAST:event_FullMaxMouseEntered
+
+    private void FullMaxMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FullMaxMouseExited
+        changeColor(ButtonMax, new Color(0,51,51));
+    }//GEN-LAST:event_FullMaxMouseExited
+
+    private void FullMaxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FullMaxMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FullMaxMouseClicked
 
     /**
      * @param args the command line arguments
@@ -201,14 +298,19 @@ public class ViewCadastro extends javax.swing.JFrame {
     private javax.swing.JPanel ButtonClose;
     private javax.swing.JPanel ButtonMax;
     private javax.swing.JPanel ButtonMin;
+    private javax.swing.JLabel Close;
     private javax.swing.JPanel Dashboard;
+    private javax.swing.JLabel FullMax;
     private javax.swing.JPanel Header;
+    private javax.swing.JPanel HideMenu;
     private javax.swing.JPanel Menu;
     private javax.swing.JPanel MenuIcon;
     private javax.swing.JPanel Menuhide;
     private javax.swing.JButton btCadastrar;
+    private javax.swing.JLabel btHideMenu;
     private javax.swing.JPanel iconin;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel jlID;
     private javax.swing.JLabel jlNome;
     private javax.swing.JTextField jtID;

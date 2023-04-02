@@ -5,7 +5,9 @@
 package View;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -16,8 +18,13 @@ public class ViewCadastro extends javax.swing.JFrame {
     /**
      * Creates new form ViewCadastro
      */
+    boolean a = true;
     public ViewCadastro() {
         initComponents();
+        btCad.setForeground(Color.WHITE);
+        btExibir.setForeground(Color.WHITE);
+        btLimpar.setForeground(Color.WHITE);
+        btCadastrar.setForeground(Color.WHITE);
     }
 
     /**
@@ -28,13 +35,7 @@ public class ViewCadastro extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
-        btCadastrar = new javax.swing.JButton();
-        jtNome = new javax.swing.JTextField();
-        jlNome = new javax.swing.JLabel();
-        jtID = new javax.swing.JTextField();
-        jlID = new javax.swing.JLabel();
         Header = new javax.swing.JPanel();
         iconin = new javax.swing.JPanel();
         ButtonClose = new javax.swing.JPanel();
@@ -46,36 +47,48 @@ public class ViewCadastro extends javax.swing.JFrame {
         MenuIcon = new javax.swing.JPanel();
         HideMenu = new javax.swing.JPanel();
         btHideMenu = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        lineMenu = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         Menuhide = new javax.swing.JPanel();
+        PanelCadastrar = new javax.swing.JPanel();
+        btCad = new javax.swing.JLabel();
+        PanelVisualizar = new javax.swing.JPanel();
+        btExibir = new javax.swing.JLabel();
         Dashboard = new javax.swing.JPanel();
-
-        btCadastrar.setFont(new java.awt.Font("Montserrat SemiBold", 0, 18)); // NOI18N
-        btCadastrar.setText("CADASTRAR");
-
-        jtNome.setText("                       ");
-        jtNome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtNomeActionPerformed(evt);
-            }
-        });
-
-        jlNome.setFont(new java.awt.Font("Montserrat SemiBold", 0, 18)); // NOI18N
-        jlNome.setText("NOME:");
-
-        jtID.setText("                       ");
-        jtID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtIDActionPerformed(evt);
-            }
-        });
-
-        jlID.setFont(new java.awt.Font("Montserrat SemiBold", 0, 18)); // NOI18N
-        jlID.setText("ID:");
+        CardCadastrar = new javax.swing.JPanel();
+        lbID = new javax.swing.JLabel();
+        jtID = new javax.swing.JTextField();
+        lbNome = new javax.swing.JLabel();
+        jtNome = new javax.swing.JTextField();
+        lbSobrenome = new javax.swing.JLabel();
+        jtSobrenome = new javax.swing.JTextField();
+        lbEmail = new javax.swing.JLabel();
+        jtEmail = new javax.swing.JTextField();
+        lbTelefone = new javax.swing.JLabel();
+        jtTelefone = new javax.swing.JTextField();
+        lbEndereco = new javax.swing.JLabel();
+        jtEndereco = new javax.swing.JTextField();
+        lbCidade = new javax.swing.JLabel();
+        jtCidade = new javax.swing.JTextField();
+        lbEstado = new javax.swing.JLabel();
+        jtEstado = new javax.swing.JTextField();
+        lbPais = new javax.swing.JLabel();
+        jtPais = new javax.swing.JTextField();
+        lbCEP = new javax.swing.JLabel();
+        jtCEP = new javax.swing.JTextField();
+        lbNascimento = new javax.swing.JLabel();
+        jtNascimento = new javax.swing.JTextField();
+        lbNascimento1 = new javax.swing.JLabel();
+        jtRegistro = new javax.swing.JTextField();
+        PanLimpar = new javax.swing.JPanel();
+        btLimpar = new javax.swing.JLabel();
+        PanCad = new javax.swing.JPanel();
+        btCadastrar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastrar");
+        setMinimumSize(new java.awt.Dimension(800, 500));
+        setPreferredSize(new java.awt.Dimension(800, 500));
 
         Header.setBackground(new java.awt.Color(0, 51, 51));
         Header.setPreferredSize(new java.awt.Dimension(800, 50));
@@ -91,7 +104,17 @@ public class ViewCadastro extends javax.swing.JFrame {
 
         Close.setBackground(new java.awt.Color(0, 51, 51));
         Close.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/delete_32px.png"))); // NOI18N
+        Close.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://img.icons8.com/ios-filled/50/FFFFFF/delete-sign--v1.png")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
         Close.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 CloseMouseClicked(evt);
@@ -111,7 +134,17 @@ public class ViewCadastro extends javax.swing.JFrame {
         ButtonMax.setLayout(new java.awt.BorderLayout());
 
         FullMax.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        FullMax.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/full_screen_32px.png"))); // NOI18N
+        FullMax.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://img.icons8.com/windows/50/FFFFFF/expand.png")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
         FullMax.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 FullMaxMouseClicked(evt);
@@ -146,26 +179,47 @@ public class ViewCadastro extends javax.swing.JFrame {
         HideMenu.setLayout(new java.awt.BorderLayout());
 
         btHideMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btHideMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/back_32px.png"))); // NOI18N
+        btHideMenu.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://img.icons8.com/ios-filled/50/FFFFFF/menu-rounded.png")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
+        btHideMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btHideMenuMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btHideMenuMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btHideMenuMouseExited(evt);
+            }
+        });
         HideMenu.add(btHideMenu, java.awt.BorderLayout.CENTER);
 
         MenuIcon.add(HideMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 5, 50, 50));
 
-        jPanel1.setBackground(new java.awt.Color(0, 51, 51));
-        jPanel1.setPreferredSize(new java.awt.Dimension(50, 5));
+        lineMenu.setBackground(new java.awt.Color(0, 51, 51));
+        lineMenu.setPreferredSize(new java.awt.Dimension(50, 5));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout lineMenuLayout = new javax.swing.GroupLayout(lineMenu);
+        lineMenu.setLayout(lineMenuLayout);
+        lineMenuLayout.setHorizontalGroup(
+            lineMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 50, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        lineMenuLayout.setVerticalGroup(
+            lineMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 5, Short.MAX_VALUE)
         );
 
-        MenuIcon.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 5));
+        MenuIcon.add(lineMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 5));
 
         jPanel5.setBackground(new java.awt.Color(0, 51, 51));
         jPanel5.setPreferredSize(new java.awt.Dimension(50, 5));
@@ -186,48 +240,231 @@ public class ViewCadastro extends javax.swing.JFrame {
         Menu.add(MenuIcon, java.awt.BorderLayout.LINE_START);
 
         Menuhide.setBackground(new java.awt.Color(0, 102, 102));
+        Menuhide.setLayout(new java.awt.GridLayout(7, 0));
 
-        javax.swing.GroupLayout MenuhideLayout = new javax.swing.GroupLayout(Menuhide);
-        Menuhide.setLayout(MenuhideLayout);
-        MenuhideLayout.setHorizontalGroup(
-            MenuhideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 220, Short.MAX_VALUE)
-        );
-        MenuhideLayout.setVerticalGroup(
-            MenuhideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 330, Short.MAX_VALUE)
-        );
+        PanelCadastrar.setBackground(new java.awt.Color(0, 102, 102));
+        PanelCadastrar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        PanelCadastrar.setLayout(new java.awt.BorderLayout());
+
+        btCad.setBackground(new java.awt.Color(255, 255, 255));
+        btCad.setFont(new java.awt.Font("Montserrat SemiBold", 0, 18)); // NOI18N
+        btCad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btCad.setText("CADASTRAR");
+        btCad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btCadMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btCadMouseExited(evt);
+            }
+        });
+        PanelCadastrar.add(btCad, java.awt.BorderLayout.CENTER);
+
+        Menuhide.add(PanelCadastrar);
+
+        PanelVisualizar.setBackground(new java.awt.Color(0, 102, 102));
+        PanelVisualizar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        PanelVisualizar.setLayout(new java.awt.BorderLayout());
+
+        btExibir.setBackground(new java.awt.Color(255, 255, 255));
+        btExibir.setFont(new java.awt.Font("Montserrat SemiBold", 0, 18)); // NOI18N
+        btExibir.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btExibir.setText("EXIBIR");
+        btExibir.setToolTipText("");
+        btExibir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btExibirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btExibirMouseExited(evt);
+            }
+        });
+        PanelVisualizar.add(btExibir, java.awt.BorderLayout.CENTER);
+
+        Menuhide.add(PanelVisualizar);
 
         Menu.add(Menuhide, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(Menu, java.awt.BorderLayout.LINE_START);
 
         Dashboard.setBackground(new java.awt.Color(204, 255, 255));
+        Dashboard.setLayout(new java.awt.CardLayout());
 
-        javax.swing.GroupLayout DashboardLayout = new javax.swing.GroupLayout(Dashboard);
-        Dashboard.setLayout(DashboardLayout);
-        DashboardLayout.setHorizontalGroup(
-            DashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 435, Short.MAX_VALUE)
-        );
-        DashboardLayout.setVerticalGroup(
-            DashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 330, Short.MAX_VALUE)
-        );
+        CardCadastrar.setBackground(new java.awt.Color(204, 255, 255));
+        CardCadastrar.setBorder(javax.swing.BorderFactory.createEmptyBorder(30, 30, 30, 30));
+        CardCadastrar.setLayout(new java.awt.GridLayout(13, 2, 8, 1));
+
+        lbID.setFont(new java.awt.Font("Montserrat SemiBold", 0, 18)); // NOI18N
+        lbID.setForeground(new java.awt.Color(0, 51, 51));
+        lbID.setText("ID:");
+        CardCadastrar.add(lbID);
+
+        jtID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtIDActionPerformed(evt);
+            }
+        });
+        CardCadastrar.add(jtID);
+
+        lbNome.setFont(new java.awt.Font("Montserrat SemiBold", 0, 18)); // NOI18N
+        lbNome.setForeground(new java.awt.Color(0, 51, 51));
+        lbNome.setText("NOME:");
+        CardCadastrar.add(lbNome);
+        CardCadastrar.add(jtNome);
+
+        lbSobrenome.setFont(new java.awt.Font("Montserrat SemiBold", 0, 18)); // NOI18N
+        lbSobrenome.setForeground(new java.awt.Color(0, 51, 51));
+        lbSobrenome.setText("SOBRENOME:");
+        CardCadastrar.add(lbSobrenome);
+        CardCadastrar.add(jtSobrenome);
+
+        lbEmail.setFont(new java.awt.Font("Montserrat SemiBold", 0, 18)); // NOI18N
+        lbEmail.setForeground(new java.awt.Color(0, 51, 51));
+        lbEmail.setText("E-MAIL:");
+        CardCadastrar.add(lbEmail);
+        CardCadastrar.add(jtEmail);
+
+        lbTelefone.setFont(new java.awt.Font("Montserrat SemiBold", 0, 18)); // NOI18N
+        lbTelefone.setForeground(new java.awt.Color(0, 51, 51));
+        lbTelefone.setText("TELEFONE:");
+        CardCadastrar.add(lbTelefone);
+
+        jtTelefone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtTelefoneActionPerformed(evt);
+            }
+        });
+        CardCadastrar.add(jtTelefone);
+
+        lbEndereco.setFont(new java.awt.Font("Montserrat SemiBold", 0, 18)); // NOI18N
+        lbEndereco.setForeground(new java.awt.Color(0, 51, 51));
+        lbEndereco.setText("ENDEREÇO:");
+        CardCadastrar.add(lbEndereco);
+
+        jtEndereco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtEnderecoActionPerformed(evt);
+            }
+        });
+        CardCadastrar.add(jtEndereco);
+
+        lbCidade.setFont(new java.awt.Font("Montserrat SemiBold", 0, 18)); // NOI18N
+        lbCidade.setForeground(new java.awt.Color(0, 51, 51));
+        lbCidade.setText("CIDADE:");
+        CardCadastrar.add(lbCidade);
+
+        jtCidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtCidadeActionPerformed(evt);
+            }
+        });
+        CardCadastrar.add(jtCidade);
+
+        lbEstado.setFont(new java.awt.Font("Montserrat SemiBold", 0, 18)); // NOI18N
+        lbEstado.setForeground(new java.awt.Color(0, 51, 51));
+        lbEstado.setText("ESTADO:");
+        CardCadastrar.add(lbEstado);
+
+        jtEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtEstadoActionPerformed(evt);
+            }
+        });
+        CardCadastrar.add(jtEstado);
+
+        lbPais.setFont(new java.awt.Font("Montserrat SemiBold", 0, 18)); // NOI18N
+        lbPais.setForeground(new java.awt.Color(0, 51, 51));
+        lbPais.setText("PAÍS:");
+        CardCadastrar.add(lbPais);
+
+        jtPais.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtPaisActionPerformed(evt);
+            }
+        });
+        CardCadastrar.add(jtPais);
+
+        lbCEP.setFont(new java.awt.Font("Montserrat SemiBold", 0, 18)); // NOI18N
+        lbCEP.setForeground(new java.awt.Color(0, 51, 51));
+        lbCEP.setText("CÓDIGO POSTAL:");
+        CardCadastrar.add(lbCEP);
+
+        jtCEP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtCEPActionPerformed(evt);
+            }
+        });
+        CardCadastrar.add(jtCEP);
+
+        lbNascimento.setFont(new java.awt.Font("Montserrat SemiBold", 0, 18)); // NOI18N
+        lbNascimento.setForeground(new java.awt.Color(0, 51, 51));
+        lbNascimento.setText("DATA NASCIMENTO:");
+        CardCadastrar.add(lbNascimento);
+
+        jtNascimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtNascimentoActionPerformed(evt);
+            }
+        });
+        CardCadastrar.add(jtNascimento);
+
+        lbNascimento1.setFont(new java.awt.Font("Montserrat SemiBold", 0, 18)); // NOI18N
+        lbNascimento1.setForeground(new java.awt.Color(0, 51, 51));
+        lbNascimento1.setText("DATA REGISTRO:");
+        CardCadastrar.add(lbNascimento1);
+
+        jtRegistro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtRegistroActionPerformed(evt);
+            }
+        });
+        CardCadastrar.add(jtRegistro);
+
+        PanLimpar.setBackground(new java.awt.Color(0, 102, 102));
+        PanLimpar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        PanLimpar.setLayout(new java.awt.BorderLayout());
+
+        btLimpar.setFont(new java.awt.Font("Montserrat SemiBold", 0, 18)); // NOI18N
+        btLimpar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btLimpar.setText("LIMPAR");
+        btLimpar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btLimparMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btLimparMouseExited(evt);
+            }
+        });
+        PanLimpar.add(btLimpar, java.awt.BorderLayout.CENTER);
+
+        CardCadastrar.add(PanLimpar);
+
+        PanCad.setBackground(new java.awt.Color(0, 102, 102));
+        PanCad.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        PanCad.setLayout(new java.awt.BorderLayout());
+
+        btCadastrar.setFont(new java.awt.Font("Montserrat SemiBold", 0, 18)); // NOI18N
+        btCadastrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btCadastrar.setText("CADASTRAR");
+        btCadastrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btCadastrarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btCadastrarMouseExited(evt);
+            }
+        });
+        PanCad.add(btCadastrar, java.awt.BorderLayout.CENTER);
+
+        CardCadastrar.add(PanCad);
+
+        Dashboard.add(CardCadastrar, "card2");
 
         getContentPane().add(Dashboard, java.awt.BorderLayout.CENTER);
 
-        pack();
+        setSize(new java.awt.Dimension(719, 417));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtIDActionPerformed
-
-    private void jtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtNomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtNomeActionPerformed
     //Botão SAIR
     public void changeColor(JPanel hover, Color rand){
         hover.setBackground(rand);
@@ -256,9 +493,121 @@ public class ViewCadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_FullMaxMouseExited
 
     private void FullMaxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FullMaxMouseClicked
-        // TODO add your handling code here:
+        if(this.getExtendedState()!= ViewCadastro.MAXIMIZED_BOTH){
+            this.setExtendedState(ViewCadastro.MAXIMIZED_BOTH);
+        }else{
+            this.setExtendedState(ViewCadastro.NORMAL);
+        }
     }//GEN-LAST:event_FullMaxMouseClicked
 
+    //BT mENU
+    private void btHideMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btHideMenuMouseEntered
+        changeColor(lineMenu, new Color(204,255,255));
+    }//GEN-LAST:event_btHideMenuMouseEntered
+
+    private void btHideMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btHideMenuMouseExited
+        changeColor(lineMenu, new Color(0,51,51));
+    }//GEN-LAST:event_btHideMenuMouseExited
+
+    private void btHideMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btHideMenuMouseClicked
+
+        if(a==true){
+            hideShow(Menu,a);
+            SwingUtilities.updateComponentTreeUI(this);
+            a=false;
+            clickMenu(HideMenu,0);
+        }else{
+            hideShow(Menu,a);
+            SwingUtilities.updateComponentTreeUI(this);
+            a=true;
+            clickMenu(HideMenu,1);
+        }
+        
+    }//GEN-LAST:event_btHideMenuMouseClicked
+    //bt CADASTRAR
+    private void btCadMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btCadMouseEntered
+        changeColor(PanelCadastrar, new Color(0,51,51));
+    }//GEN-LAST:event_btCadMouseEntered
+
+    private void btCadMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btCadMouseExited
+        changeColor(PanelCadastrar, new Color(0,102,102));
+    }//GEN-LAST:event_btCadMouseExited
+
+    private void btExibirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btExibirMouseEntered
+        changeColor(PanelVisualizar, new Color(0,51,51));
+    }//GEN-LAST:event_btExibirMouseEntered
+
+    private void btExibirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btExibirMouseExited
+        changeColor(PanelVisualizar, new Color(0,102,102));
+    }//GEN-LAST:event_btExibirMouseExited
+
+    private void jtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtIDActionPerformed
+
+    private void jtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtTelefoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtTelefoneActionPerformed
+
+    private void jtEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtEnderecoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtEnderecoActionPerformed
+
+    private void jtCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtCidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtCidadeActionPerformed
+
+    private void jtEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtEstadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtEstadoActionPerformed
+
+    private void jtPaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtPaisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtPaisActionPerformed
+
+    private void jtCEPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtCEPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtCEPActionPerformed
+
+    private void jtNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtNascimentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtNascimentoActionPerformed
+
+    private void jtRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtRegistroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtRegistroActionPerformed
+
+    private void btLimparMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btLimparMouseEntered
+        changeColor(PanLimpar, new Color(0,51,51));
+    }//GEN-LAST:event_btLimparMouseEntered
+
+    private void btLimparMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btLimparMouseExited
+       changeColor(PanLimpar, new Color(0,102,102));
+    }//GEN-LAST:event_btLimparMouseExited
+
+    private void btCadastrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btCadastrarMouseEntered
+        changeColor(PanCad, new Color(0,51,51));
+    }//GEN-LAST:event_btCadastrarMouseEntered
+
+    private void btCadastrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btCadastrarMouseExited
+        changeColor(PanCad, new Color(0,102,102));
+    }//GEN-LAST:event_btCadastrarMouseExited
+
+    public void clickMenu(JPanel h1, int numberbool){
+        if(numberbool == 1){
+            h1.setBackground(new Color(0,102,102));         
+        }else{
+            h1.setBackground(new Color(0,51,51));
+        }
+    }
+    
+    public void hideShow(JPanel menushow, boolean dash){
+        if(dash == true){
+            menushow.setPreferredSize(new Dimension(50, menushow.getHeight()));
+        }else{
+            menushow.setPreferredSize(new Dimension(270, menushow.getHeight()));
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -298,6 +647,7 @@ public class ViewCadastro extends javax.swing.JFrame {
     private javax.swing.JPanel ButtonClose;
     private javax.swing.JPanel ButtonMax;
     private javax.swing.JPanel ButtonMin;
+    private javax.swing.JPanel CardCadastrar;
     private javax.swing.JLabel Close;
     private javax.swing.JPanel Dashboard;
     private javax.swing.JLabel FullMax;
@@ -306,14 +656,41 @@ public class ViewCadastro extends javax.swing.JFrame {
     private javax.swing.JPanel Menu;
     private javax.swing.JPanel MenuIcon;
     private javax.swing.JPanel Menuhide;
-    private javax.swing.JButton btCadastrar;
+    private javax.swing.JPanel PanCad;
+    private javax.swing.JPanel PanLimpar;
+    private javax.swing.JPanel PanelCadastrar;
+    private javax.swing.JPanel PanelVisualizar;
+    private javax.swing.JLabel btCad;
+    private javax.swing.JLabel btCadastrar;
+    private javax.swing.JLabel btExibir;
     private javax.swing.JLabel btHideMenu;
+    private javax.swing.JLabel btLimpar;
     private javax.swing.JPanel iconin;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JLabel jlID;
-    private javax.swing.JLabel jlNome;
+    private javax.swing.JTextField jtCEP;
+    private javax.swing.JTextField jtCidade;
+    private javax.swing.JTextField jtEmail;
+    private javax.swing.JTextField jtEndereco;
+    private javax.swing.JTextField jtEstado;
     private javax.swing.JTextField jtID;
+    private javax.swing.JTextField jtNascimento;
     private javax.swing.JTextField jtNome;
+    private javax.swing.JTextField jtPais;
+    private javax.swing.JTextField jtRegistro;
+    private javax.swing.JTextField jtSobrenome;
+    private javax.swing.JTextField jtTelefone;
+    private javax.swing.JLabel lbCEP;
+    private javax.swing.JLabel lbCidade;
+    private javax.swing.JLabel lbEmail;
+    private javax.swing.JLabel lbEndereco;
+    private javax.swing.JLabel lbEstado;
+    private javax.swing.JLabel lbID;
+    private javax.swing.JLabel lbNascimento;
+    private javax.swing.JLabel lbNascimento1;
+    private javax.swing.JLabel lbNome;
+    private javax.swing.JLabel lbPais;
+    private javax.swing.JLabel lbSobrenome;
+    private javax.swing.JLabel lbTelefone;
+    private javax.swing.JPanel lineMenu;
     // End of variables declaration//GEN-END:variables
 }

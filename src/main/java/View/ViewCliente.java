@@ -17,15 +17,15 @@ import javax.swing.SwingUtilities;
  *
  * @author ricar
  */
-public class ViewCadastro extends javax.swing.JFrame {
+public class ViewCliente extends javax.swing.JFrame {
 
     /**
-     * Creates new form ViewCadastro
+     * Creates new form ViewCliente
      */
     boolean a = true;
     ControllerClienteArquivoTexto controller = new ControllerClienteArquivoTexto();
     
-    public ViewCadastro() {
+    public ViewCliente() {
         initComponents();
         btCad.setForeground(Color.WHITE);
         btExibir.setForeground(Color.WHITE);
@@ -115,7 +115,6 @@ public class ViewCadastro extends javax.swing.JFrame {
         setTitle("Cadastrar");
         setMinimumSize(new java.awt.Dimension(800, 500));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(800, 500));
 
         Header.setBackground(new java.awt.Color(0, 51, 51));
         Header.setPreferredSize(new java.awt.Dimension(800, 50));
@@ -636,10 +635,10 @@ public class ViewCadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_FullMaxMouseExited
 
     private void FullMaxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FullMaxMouseClicked
-        if(this.getExtendedState()!= ViewCadastro.MAXIMIZED_BOTH){
-            this.setExtendedState(ViewCadastro.MAXIMIZED_BOTH);
+        if(this.getExtendedState()!= ViewCliente.MAXIMIZED_BOTH){
+            this.setExtendedState(ViewCliente.MAXIMIZED_BOTH);
         }else{
-            this.setExtendedState(ViewCadastro.NORMAL);
+            this.setExtendedState(ViewCliente.NORMAL);
         }
     }//GEN-LAST:event_FullMaxMouseClicked
 
@@ -857,20 +856,21 @@ public class ViewCadastro extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ViewCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ViewCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ViewCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ViewCadastro().setVisible(true);
+                new ViewCliente().setVisible(true);
             }
         });
     }

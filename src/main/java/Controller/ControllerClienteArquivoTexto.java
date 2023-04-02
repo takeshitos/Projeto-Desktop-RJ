@@ -55,7 +55,7 @@ public class ControllerClienteArquivoTexto extends ControllerClienteArquivo{
 
     /**
      * @param append se o texto será continuado a partir do seu
-     * final (append = false) ou se o arquivo será sobrescrito (append = false)
+     * final (append = true) ou se o arquivo será sobrescrito (append = false)
      * @return true caso a operação de escrita seja bem sucedida ou false
      * caso contrário.
      */

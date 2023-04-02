@@ -4,9 +4,12 @@
  */
 package View;
 
+import Controller.ControllerCliente;
+import Controller.ControllerClienteArquivoTexto;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
@@ -20,12 +23,17 @@ public class ViewCadastro extends javax.swing.JFrame {
      * Creates new form ViewCadastro
      */
     boolean a = true;
+    ControllerClienteArquivoTexto controller = new ControllerClienteArquivoTexto();
+    
     public ViewCadastro() {
         initComponents();
         btCad.setForeground(Color.WHITE);
         btExibir.setForeground(Color.WHITE);
         btLimpar.setForeground(Color.WHITE);
         btCadastrar.setForeground(Color.WHITE);
+        btExibirCad.setForeground(Color.WHITE);
+        lbPesquisar.setForeground(Color.WHITE);
+        lbTitulo.setForeground(Color.WHITE);
         Dashboard.removeAll();
         Dashboard.add(CardPadrao);
         Dashboard.repaint();
@@ -48,6 +56,7 @@ public class ViewCadastro extends javax.swing.JFrame {
         ButtonMax = new javax.swing.JPanel();
         FullMax = new javax.swing.JLabel();
         ButtonMin = new javax.swing.JPanel();
+        lbTitulo = new javax.swing.JLabel();
         Menu = new javax.swing.JPanel();
         MenuIcon = new javax.swing.JPanel();
         HideMenu = new javax.swing.JPanel();
@@ -93,7 +102,7 @@ public class ViewCadastro extends javax.swing.JFrame {
         btCadastrar = new javax.swing.JLabel();
         CardExibir = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lbPesquisar = new javax.swing.JLabel();
         jtPesquisar = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtInfos = new javax.swing.JTextArea();
@@ -183,6 +192,10 @@ public class ViewCadastro extends javax.swing.JFrame {
         iconin.add(ButtonMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 0, 60, 50));
 
         Header.add(iconin, java.awt.BorderLayout.LINE_END);
+
+        lbTitulo.setFont(new java.awt.Font("Montserrat SemiBold", 0, 24)); // NOI18N
+        lbTitulo.setText("        Gestão de Clientes");
+        Header.add(lbTitulo, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(Header, java.awt.BorderLayout.PAGE_START);
 
@@ -527,9 +540,9 @@ public class ViewCadastro extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
         jPanel1.setLayout(new java.awt.BorderLayout(10, 5));
 
-        jLabel1.setFont(new java.awt.Font("Montserrat SemiBold", 0, 18)); // NOI18N
-        jLabel1.setText("PESQUISAR (ID):");
-        jPanel1.add(jLabel1, java.awt.BorderLayout.LINE_START);
+        lbPesquisar.setFont(new java.awt.Font("Montserrat SemiBold", 0, 18)); // NOI18N
+        lbPesquisar.setText("PESQUISAR (ID):");
+        jPanel1.add(lbPesquisar, java.awt.BorderLayout.LINE_START);
 
         jtPesquisar.setBackground(new java.awt.Color(204, 255, 255));
         jtPesquisar.setFont(new java.awt.Font("Montserrat SemiBold", 0, 14)); // NOI18N
@@ -561,6 +574,9 @@ public class ViewCadastro extends javax.swing.JFrame {
         btExibirCad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btExibirCad.setText("EXIBIR");
         btExibirCad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btExibirCadMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btExibirCadMouseEntered(evt);
             }
@@ -762,24 +778,36 @@ public class ViewCadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_btHomeMouseExited
 
     private void btLimparMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btLimparMouseClicked
-        jtID.setText("");
-        jtNome.setText("");
-        jtSobrenome.setText("");
-        jtEmail.setText("");
-        jtTelefone.setText("");
-        jtEndereco.setText("");
-        jtCidade.setText("");
-        jtEstado.setText("");
-        jtPais.setText("");
-        jtCEP.setText("");
-        jtNascimento.setText("");
-        jtRegistro.setText("");
-        jtID.requestFocus();
+        limpar();
     }//GEN-LAST:event_btLimparMouseClicked
 
     private void btCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btCadastrarMouseClicked
-        // COLOCAR AQUI OS EVENTOS DE CADASTRARccccccccccccccccccccccccccccccccccccccccccc
+        // COLOCAR AQUI OS EVENTOS DE CADASTRAR
+        if(ControllerCliente.cadastrarCliente(jtNome.getText(), jtSobrenome.getText(), 
+                jtEmail.getText(), jtTelefone.getText(), jtEndereco.getText(), 
+                jtCidade.getText(), jtEstado.getText(), jtPais.getText(), jtCEP.getText(), 
+                jtID.getText(), jtNascimento.getText(), jtRegistro.getText())){
+            
+                JOptionPane.showMessageDialog(this,
+                        "Arquivo gravado com sucesso",
+                        "Arquivo gravado",
+                        JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this,
+                    "Arquivo não foi gravado",
+                    "Arquivo não gravado",
+                    JOptionPane.WARNING_MESSAGE);
+        }    
+        limpar();
+        
     }//GEN-LAST:event_btCadastrarMouseClicked
+
+    private void btExibirCadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btExibirCadMouseClicked
+        controller.setArquivo("EXIBIR");
+        if(controller.ler()) {
+            jtInfos.setText(controller.getTexto());
+        }
+    }//GEN-LAST:event_btExibirCadMouseClicked
 
     public void clickMenu(JPanel h1, int numberbool){
         if(numberbool == 1){
@@ -795,6 +823,22 @@ public class ViewCadastro extends javax.swing.JFrame {
         }else{
             menushow.setPreferredSize(new Dimension(270, menushow.getHeight()));
         }
+    }
+    
+    public void limpar(){
+        jtID.setText("");
+        jtNome.setText("");
+        jtSobrenome.setText("");
+        jtEmail.setText("");
+        jtTelefone.setText("");
+        jtEndereco.setText("");
+        jtCidade.setText("");
+        jtEstado.setText("");
+        jtPais.setText("");
+        jtCEP.setText("");
+        jtNascimento.setText("");
+        jtRegistro.setText("");
+        jtID.requestFocus();
     }
     /**
      * @param args the command line arguments
@@ -860,7 +904,6 @@ public class ViewCadastro extends javax.swing.JFrame {
     private javax.swing.JLabel btHome;
     private javax.swing.JLabel btLimpar;
     private javax.swing.JPanel iconin;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -888,8 +931,10 @@ public class ViewCadastro extends javax.swing.JFrame {
     private javax.swing.JLabel lbNascimento1;
     private javax.swing.JLabel lbNome;
     private javax.swing.JLabel lbPais;
+    private javax.swing.JLabel lbPesquisar;
     private javax.swing.JLabel lbSobrenome;
     private javax.swing.JLabel lbTelefone;
+    private javax.swing.JLabel lbTitulo;
     private javax.swing.JPanel lineHome;
     private javax.swing.JPanel lineMenu;
     // End of variables declaration//GEN-END:variables

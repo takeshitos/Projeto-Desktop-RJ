@@ -11,7 +11,7 @@ import javax.swing.JFileChooser;
  *
  * @author jonas
  */
-public abstract class ControllerArquivo {
+public abstract class ControllerClienteArquivo {
     public File arquivo = null;
     public abstract boolean ler(); //metodo abstrato que obriga sobrescrever na herança
     public abstract boolean escrever(boolean append); //metodo abstrato que obriga sobrescrever na herança

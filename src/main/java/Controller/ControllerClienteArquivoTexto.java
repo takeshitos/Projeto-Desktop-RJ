@@ -15,7 +15,7 @@ import java.io.IOException;
  *
  * @author jonas
  */
-public class ControllerArquivoTexto extends ControllerArquivo{
+public class ControllerClienteArquivoTexto extends ControllerClienteArquivo{
     private String texto = null;
     private BufferedReader leitura = null;
     private BufferedWriter escrita = null;
@@ -32,6 +32,7 @@ public class ControllerArquivoTexto extends ControllerArquivo{
      * @return retorna se a leitura der certo, senao retorna falso
      */
     
+    @Override
     public boolean ler() {
         StringBuilder line = new StringBuilder();
         try {
@@ -59,6 +60,7 @@ public class ControllerArquivoTexto extends ControllerArquivo{
      * caso contrário.
      */
     
+    @Override
     public boolean escrever(boolean append) {
         if (arquivo != null) {
             try {

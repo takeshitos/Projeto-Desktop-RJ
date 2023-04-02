@@ -482,6 +482,9 @@ public class ViewCadastro extends javax.swing.JFrame {
         btLimpar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btLimpar.setText("LIMPAR");
         btLimpar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btLimparMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btLimparMouseEntered(evt);
             }
@@ -501,6 +504,9 @@ public class ViewCadastro extends javax.swing.JFrame {
         btCadastrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btCadastrar.setText("CADASTRAR");
         btCadastrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btCadastrarMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btCadastrarMouseEntered(evt);
             }
@@ -754,6 +760,26 @@ public class ViewCadastro extends javax.swing.JFrame {
     private void btHomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btHomeMouseExited
         changeColor(lineHome, new Color(0,51,51));
     }//GEN-LAST:event_btHomeMouseExited
+
+    private void btLimparMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btLimparMouseClicked
+        jtID.setText("");
+        jtNome.setText("");
+        jtSobrenome.setText("");
+        jtEmail.setText("");
+        jtTelefone.setText("");
+        jtEndereco.setText("");
+        jtCidade.setText("");
+        jtEstado.setText("");
+        jtPais.setText("");
+        jtCEP.setText("");
+        jtNascimento.setText("");
+        jtRegistro.setText("");
+        jtID.requestFocus();
+    }//GEN-LAST:event_btLimparMouseClicked
+
+    private void btCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btCadastrarMouseClicked
+        // COLOCAR AQUI OS EVENTOS DE CADASTRARccccccccccccccccccccccccccccccccccccccccccc
+    }//GEN-LAST:event_btCadastrarMouseClicked
 
     public void clickMenu(JPanel h1, int numberbool){
         if(numberbool == 1){

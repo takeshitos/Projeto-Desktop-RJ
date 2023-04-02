@@ -27,29 +27,128 @@ public class ViewCadastro extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jtID = new javax.swing.JTextField();
+        btCadastrar = new javax.swing.JButton();
         jtNome = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jlNome = new javax.swing.JLabel();
+        jtID = new javax.swing.JTextField();
+        jlID = new javax.swing.JLabel();
+        Header = new javax.swing.JPanel();
+        iconin = new javax.swing.JPanel();
+        ButtonClose = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        ButtonMax = new javax.swing.JPanel();
+        ButtonMin = new javax.swing.JPanel();
+        Menu = new javax.swing.JPanel();
+        MenuIcon = new javax.swing.JPanel();
+        Menuhide = new javax.swing.JPanel();
+        Dashboard = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.PAGE_AXIS));
+        btCadastrar.setFont(new java.awt.Font("Montserrat SemiBold", 0, 18)); // NOI18N
+        btCadastrar.setText("CADASTRAR");
 
-        jtID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtIDActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jtID);
-
+        jtNome.setText("                       ");
         jtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtNomeActionPerformed(evt);
             }
         });
-        getContentPane().add(jtNome);
 
-        jButton1.setText("jButton1");
-        getContentPane().add(jButton1);
+        jlNome.setFont(new java.awt.Font("Montserrat SemiBold", 0, 18)); // NOI18N
+        jlNome.setText("NOME:");
+
+        jtID.setText("                       ");
+        jtID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtIDActionPerformed(evt);
+            }
+        });
+
+        jlID.setFont(new java.awt.Font("Montserrat SemiBold", 0, 18)); // NOI18N
+        jlID.setText("ID:");
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastrar");
+
+        Header.setBackground(new java.awt.Color(0, 51, 51));
+        Header.setPreferredSize(new java.awt.Dimension(800, 50));
+        Header.setLayout(new java.awt.BorderLayout());
+
+        iconin.setBackground(new java.awt.Color(0, 51, 51));
+        iconin.setMinimumSize(new java.awt.Dimension(130, 100));
+        iconin.setName(""); // NOI18N
+        iconin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ButtonClose.setBackground(new java.awt.Color(0, 51, 51));
+        ButtonClose.setLayout(new java.awt.BorderLayout());
+
+        jLabel1.setBackground(new java.awt.Color(0, 51, 51));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ButtonClose.add(jLabel1, java.awt.BorderLayout.CENTER);
+
+        iconin.add(ButtonClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 0, 60, 50));
+
+        ButtonMax.setBackground(new java.awt.Color(0, 51, 51));
+        ButtonMax.setLayout(new java.awt.BorderLayout());
+        iconin.add(ButtonMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 0, 60, 50));
+
+        ButtonMin.setBackground(new java.awt.Color(0, 51, 51));
+        ButtonMin.setLayout(new java.awt.BorderLayout());
+        iconin.add(ButtonMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 0, 60, 50));
+
+        Header.add(iconin, java.awt.BorderLayout.LINE_END);
+
+        getContentPane().add(Header, java.awt.BorderLayout.PAGE_START);
+
+        Menu.setPreferredSize(new java.awt.Dimension(270, 254));
+        Menu.setLayout(new java.awt.BorderLayout());
+
+        MenuIcon.setBackground(new java.awt.Color(0, 51, 51));
+        MenuIcon.setPreferredSize(new java.awt.Dimension(50, 330));
+
+        javax.swing.GroupLayout MenuIconLayout = new javax.swing.GroupLayout(MenuIcon);
+        MenuIcon.setLayout(MenuIconLayout);
+        MenuIconLayout.setHorizontalGroup(
+            MenuIconLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 50, Short.MAX_VALUE)
+        );
+        MenuIconLayout.setVerticalGroup(
+            MenuIconLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 330, Short.MAX_VALUE)
+        );
+
+        Menu.add(MenuIcon, java.awt.BorderLayout.LINE_START);
+
+        Menuhide.setBackground(new java.awt.Color(0, 102, 102));
+
+        javax.swing.GroupLayout MenuhideLayout = new javax.swing.GroupLayout(Menuhide);
+        Menuhide.setLayout(MenuhideLayout);
+        MenuhideLayout.setHorizontalGroup(
+            MenuhideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 220, Short.MAX_VALUE)
+        );
+        MenuhideLayout.setVerticalGroup(
+            MenuhideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 330, Short.MAX_VALUE)
+        );
+
+        Menu.add(Menuhide, java.awt.BorderLayout.CENTER);
+
+        getContentPane().add(Menu, java.awt.BorderLayout.LINE_START);
+
+        Dashboard.setBackground(new java.awt.Color(204, 255, 255));
+
+        javax.swing.GroupLayout DashboardLayout = new javax.swing.GroupLayout(Dashboard);
+        Dashboard.setLayout(DashboardLayout);
+        DashboardLayout.setHorizontalGroup(
+            DashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 435, Short.MAX_VALUE)
+        );
+        DashboardLayout.setVerticalGroup(
+            DashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 330, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(Dashboard, java.awt.BorderLayout.CENTER);
 
         pack();
         setLocationRelativeTo(null);
@@ -99,7 +198,19 @@ public class ViewCadastro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JPanel ButtonClose;
+    private javax.swing.JPanel ButtonMax;
+    private javax.swing.JPanel ButtonMin;
+    private javax.swing.JPanel Dashboard;
+    private javax.swing.JPanel Header;
+    private javax.swing.JPanel Menu;
+    private javax.swing.JPanel MenuIcon;
+    private javax.swing.JPanel Menuhide;
+    private javax.swing.JButton btCadastrar;
+    private javax.swing.JPanel iconin;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jlID;
+    private javax.swing.JLabel jlNome;
     private javax.swing.JTextField jtID;
     private javax.swing.JTextField jtNome;
     // End of variables declaration//GEN-END:variables
